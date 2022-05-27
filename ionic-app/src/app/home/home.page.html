@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      ABP Ionic App - {{ tenantName }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button expand="full" (click)="login()" *ngIf="!hasLoggedIn">Login</ion-button>
+  <ion-button expand="full" (click)="retrieveUsers()" *ngIf="hasLoggedIn">Get Users</ion-button>
+  <ion-list>
+    <ion-item *ngFor="let user of users">
+      {{ user.name }}
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" (click)="logout()" *ngIf="hasLoggedIn">Logout</ion-button>
+</ion-content>
